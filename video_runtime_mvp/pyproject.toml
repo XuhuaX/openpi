@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-runtime-mvp"
+version = "0.1.0"
+description = "MVP for a training-oriented video runtime with pluggable decode backends"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "OpenAI" }]
+dependencies = [
+  "numpy>=1.24",
+  "opencv-python>=4.8",
+  "torch>=2.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+gpu = ["PyNvVideoCodec>=2.0.0"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
